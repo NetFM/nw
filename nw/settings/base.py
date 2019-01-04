@@ -21,7 +21,7 @@ BASE_DIR = os.path.dirname(PROJECT_DIR)
 
 DEBUG = True
 INTERNAL_IPS = ['127.0.0.1', '192.168.1.11', '192.168.254.11',]
-ALLOWED_HOSTS = [ 'netfm.org', 'www.netfm.org', ]
+ALLOWED_HOSTS = [ 'localhost', 'netfm.org', 'www.netfm.org', ]
 
 SECRET_KEY='dfsdafsdafsadfasdfsdafsdfsdfsadfasdfasdfsadfasdfasdfasdf'
 

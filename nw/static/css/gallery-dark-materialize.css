@@ -4013,11 +4013,18 @@ nav .button-collapse i {
 }
 
 nav .brand-logo {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 600;
   position: absolute;
   color: #fff;
+  color: #26a69a;
+  color: #b71c1c;
+  color: #F44336;
+  color: #b71c1c;
   display: inline-block;
   font-size: 2.1rem;
   padding: 0;
+  padding-left: 30px;
   white-space: nowrap;
 }
 
@@ -8282,7 +8289,7 @@ input[type=range]:focus::-ms-fill-upper {
 .picker__close, .picker__today {
   font-size: 1.1rem;
   padding: 0 1rem;
-  color: #26a69a;
+  color: #93b63a;
 }
 
 .picker__nav--prev:before,
@@ -8486,7 +8493,7 @@ ul {
 }
 
 .row .col {
-  padding: 0;
+  padding: 40px;
 }
 
 /******************
@@ -8529,14 +8536,23 @@ nav ul:not(.indicators) li {
 
 nav ul:not(.indicators) li.active > a,
 nav ul:not(.indicators) li:hover > a {
-  color: #fff;
+  color: #333;
+  background-color: transparent;
+}
+
+
+nav ul.topnav li.active > a,
+nav ul.topnav li:hover > a {
+  color: #aaa;
   background-color: transparent;
 }
 
 nav ul:not(.indicators) li > a {
   position: relative;
   font-size: 13px;
-  color: rgba(255, 255, 255, 0.4);
+  font-size: 1.1em;
+  font-weight: bold;
+//  color: rgba(255, 255, 255, 0.4);
   padding: 0 15px;
   z-index: 1;
   transition: color .3s;
@@ -8633,10 +8649,13 @@ nav .categories-wrapper .categories-container.pinned {
 nav .categories-wrapper .categories-container.pinned li.active > a,
 nav .categories-wrapper .categories-container.pinned li:hover > a {
   color: #fff;
+  color: #333;
+  outline: none;
+  font-weight: bold;
 }
 
 nav .categories-wrapper .categories-container.pinned li > a {
-  color: #444;
+  font-weight: bold;
 }
 
 nav .categories-wrapper .categories-container .categories > li {
@@ -8903,6 +8922,7 @@ ul.categories li {
   text-align: center;
   line-height: 36px;
   border-radius: 36px;
+  font-size: 1.1em;
 }
 
 ul.categories li:hover::before, ul.categories li.active::before {
@@ -8910,19 +8930,24 @@ ul.categories li:hover::before, ul.categories li.active::before {
 }
 
 ul.categories li:hover a, ul.categories li.active a {
-  color: #fff;
+  color: #333; 
+  font-weight: bold;
+  font-size: 1.1em;
   background-color: transparent;
 }
 
 ul.categories li::before {
+  color: #333; 
+  font-weight: bold;
+  font-size: 1.1em;
   content: '';
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-  background: #3a8ed5;
-  background: linear-gradient(to bottom right, #3acfd5, #3a8ed5);
+  background-color: transparent;
+  /* background: linear-gradient(to bottom right, #bdbdbd, #9e9e9e); */
   /* Standard syntax (must be last) */
   border-radius: inherit;
   opacity: 0;
@@ -8933,6 +8958,9 @@ ul.categories li > a {
   position: relative;
   font-size: 13px;
   color: #999;
+  color: #444;
+  color: #333;
+  color: #777;
   padding: 0 15px;
   z-index: 1;
   transition: color .3s;
@@ -8942,12 +8970,13 @@ nav ul.dropdown-content li > a,
 .dropdown-content li > a {
   height: 50px;
   line-height: 50px;
-  color: #444;
+  color: #777;
 }
 
 nav ul.dropdown-content li > a:hover,
 .dropdown-content li > a:hover {
   color: #444;
+  background-color: #fff;
 }
 
 .collapsible {
