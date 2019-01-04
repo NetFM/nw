@@ -3,3 +3,5 @@ wagtail
 django-extensions
 Willow
 djangorestframework
+django-widget_tweaks
+django-debug-toolbar
