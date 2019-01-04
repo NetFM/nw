@@ -1,0 +1,41 @@
+
+{% load wagtailcore_tags home_tags %}
+{% load wagtailimages_tags %}
+
+{% for casestudysnippet in casestudysnippets %}
+
+
+<div class="col l4 m6 s12 gallery-item gallery-expand gallery-filter casestudy">
+          <div class="gallery-curve-wrapper">
+            <a class="gallery-cover gray">
+                {% image casestudysnippet.feed_image fill-600x400 class="responsive-img" alt="placeholder" %}
+
+            </a>
+              <div class="gallery-header">
+                  <h5>{{ casestudysnippet.title }}</h5>
+                    </div>
+            <div class="gallery-body">
+              <div class="title-wrapper">
+                <h3>{{ casestudysnippet.title }}</h3>
+              </div>
+              <div class="description">
+                  {{ casestudysnippet.body|richtext }}
+              </div>
+
+              <div class="carousel-wrapper">
+                  <div class="carousel">
+                     {% for casestudy_item in casestudysnippet.casestudy_items.all %}
+                     {% image casestudy_item.image fill-600x400  as photo %}
+                      <a class="carousel-item" href="#one!"><img src="{{ photo.url }}"></a>
+                     {% endfor %}
+                  <!-- xxx have to add this extra image to get carousel to work -->
+                      <a class="carousel-item" href="#one!">{% image casestudysnippet.feed_image fill-600x400 %}</a>
+                  </div>
+                </div>
+            </div>
+            <div class="gallery-action">
+              <a class="btn-floating btn-large waves-effect waves-light"><i class="material-icons">favorite</i></a>
+            </div>
+          </div>
+        </div>
+{% endfor %}

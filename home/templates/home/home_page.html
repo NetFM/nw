@@ -1,0 +1,252 @@
+
+{% extends "base.html" %}
+
+{% load static wagtailcore_tags widget_tweaks %}
+
+
+{% load wagtailcore_tags home_tags %}
+{% load wagtailimages_tags %}
+
+{% load static wagtailcore_tags widget_tweaks %}
+
+
+{% block body_class %}blue-grey darken-4{% endblock %}
+
+{% load static %}
+
+{% block extra_css %}
+    <!-- Lato Font -->
+    <title>NetFM</title>
+    <link href='https://fonts.googleapis.com/css?family=Lato:300,400,600,700' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+    <!-- Stylesheet -->
+    <link href="{% static "css/gallery-dark-materialize.css" %}" rel="stylesheet">
+    <link href="{% static "css/nw.css" rel="stylesheet" %}">
+
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+{% endblock %}
+
+  <body class="blue-grey darken-4">
+
+
+  {% block content %}
+
+    <!-- Navbar and Header -->
+    <nav class="nav-extended nav-full-header z-depth-0 blue-grey darken-3">
+      <div class="nav-background" id="embed">
+  <!-- WCAG general accessibility recommendation is that media such as background video play through only once. Loop turned on for the purposes of illustration; if removed, the end of the video will fade in the same way created by pressing the "Pause" button  -->
+  <!-- The video -->
+  <div class="video-container-nw">
+<video autoplay muted loop id="myVideo">
+  <source src="/media/netfm.mp4" type="video/mp4">
+</video>
+  </div>
+      </div>
+
+      <div class="nav-wrapper container">
+        <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+        <ul class="topnav right hide-on-med-and-down">
+          <li><a href="#contact_us_modal">Contact us</a></li>
+          <li><a href="#support_modal" id="supportoption">Live</a></li>
+          <li><a class='dropdown-button' href='#' data-activates='feature-dropdown' data-belowOrigin="true" data-constrainWidth="false">Login<i class="material-icons right">arrow_drop_down</i></a></li>
+        </ul>
+        <!-- Dropdown Structure -->
+        <ul id='feature-dropdown' class='dropdown-content'>
+          <li><a href="https://click2park.co.uk/">Click<span style="font-size:1.1em" class="red-text text-darken-4">2</span>Park</a></li>
+          <li><a href="https://visitor.express/login/">Visitor<span style="font-size:1.1em" class="red-text text-darken-4">.</span>Express</a></li>
+        </ul>
+
+      </div>
+
+      <div class="nav-header valign-wrapper">
+
+
+
+        <div class="center">
+          <h1>Software by <span class="logonetfm">NetFM</span></h1>
+            <h5>Car park management and visitor experience software</h5>
+        <div class="numberscontainer">
+          <div class="numbersdiv" id="numbers1"><span id="bookings"></span><br/>Bookings</div>
+          <div class="numbersdiv" id="numbers2"><span id="visitors"></span> <br/>Visitors</div>
+          <div class="numbersdiv" id="numbers3"><span id="barriers"></span><br />aaa<br />ANPR</div>
+        </div>
+        </div>
+      </div>
+
+      <!-- Fixed Masonry Filters -->
+      <div class="categories-wrapper white">
+        <div class="categories-container">
+        <a href="/" class="brand-logo hide-on-med-and-down">NetFM</a>
+          <ul class="categories container hide-on-med-and-down">
+            <li><a href="#about" onclick="ScrollTo('portfolio')">About</a></li>
+            <li><a href="#visitorexpress" onclick="ScrollTo('portfolio')">Visitor<span style="font-size:1.1em" class="red-text text-darken-4">.</span>Express</a></li>
+            <li><a href="#click2park" onclick="ScrollTo('portfolio')">Click<span style="font-size:1.1em" class="red-text text-darken-4">2</span>Park</a></li>
+            <li><a href="#journey2share" onclick="ScrollTo('portfolio')">Journey<span style="font-size:1.1em" class="red-text text-darken-4">2</span>Share</a></li>
+            <li><a href="#casestudy" onclick="ScrollTo('portfolio')">Case Studies</a></li>
+            <li><a href="#" ><i class="material-icons left">local_phone</i>01344 289884</a></li>
+          </ul>
+
+        </div>
+      </div>
+    </nav>
+    <ul class="side-nav" id="nav-mobile">
+      <li><a href="#"><i class="material-icons">all_inclusive</i>01344289884</a></li>
+      <li><a href="#contact_us_modal"><i class="material-icons">brightness_3</i>Contact us</a></li>
+      <li><a href="#support_modal"><i class="material-icons">fullscreen</i>Support</a></li>
+      <li><a href="https://click2park.co.uk"><i class="material-icons">swap_horiz</i>Login Click<span style="font-size:1.1em" class="red-text text-darken-4">2</span>Park</a></li>
+      <li><a href="https://visitor.express/login/"><i class="material-icons">texture</i>Login Visitor<span style="font-size:1.1em" class="red-text text-darken-4">.</span>Express</a></li>
+            <li><a href="#about">About NetFM</a></li>
+            <li><a href="#visitorexpress">Info Visitor.Express</a></li>
+            <li><a href="#click2park">Info Click2Park</a></li>
+            <li><a href="#journey2share">Info Journey2Share</a></li>
+            <li><a href="#casestudy">Info CaseStudy</a></li>
+    </ul>
+
+    <!-- Gallery -->
+    <div id="portfolio" class="section grey lighten-1">
+      <div class="gallery row">
+
+        {% AboutSnippets %}
+
+        {% Click2ParkSnippets %}
+
+        {% VisitorExpressSnippets %}
+
+        {% Journey2ShareSnippets %}
+
+        {% CaseStudySnippets %}
+
+      </div>
+
+    </div><!-- /.container -->
+
+      <div id="support_modal" class="modal">
+        <div class="modal-content">
+        <span class="netfmred"> NetFM </span> Live 
+        <div class="textlive">
+          <div class="datatake">Data aggregated from the past 7 days:</div>
+          <div class="operational">All Systems Operational <span class="greendot">&middot;</span>  </div> 
+        </div>
+        <div class="numberscontainer">
+        </div>
+      </div>
+      </div>
+
+
+
+
+
+
+
+<!-- Modal Structure -->
+  <div id="contact_us_modal" class="modal">
+    <div class="modal-content">
+      <h4>Contact <span class="logonetfm">NetFM</span></h4>
+      {{ page.intro | richtext }}
+
+  <div class="row">
+
+    {% block contact_modal %}
+
+<form action="{% pageurl page %}" method="POST">
+    {% csrf_token %}
+
+    {% if form.non_field_errors %}
+      <div class="alert alert-danger" role="alert">
+        {% for error in form.non_field_errors %}
+          {{ error }}
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    {% for field in form.visible_fields %}
+      <div class="form-group">
+        {{ field.label_tag }}
+        {% render_field field class+="form-control" %}
+      </div>
+    {% endfor %}
+
+    <button type="submit" class="btn btn-primary red lighten-1" >Submit</button>
+</form>
+
+{% endblock %}
+
+  {% endblock %}
+
+  </div>
+  </div>
+
+  {% block extra_js %}
+
+    <!-- Core Javascript -->
+    <script src="https://code.jquery.com/jquery-3.3.0.js"></script>
+<script src="https://code.jquery.com/jquery-migrate-3.0.1.js"></script>
+    <script src="{% static "js/imagesloaded.pkgd.min.js" %}"></script>
+    <script src="{% static "js/masonry.pkgd.min.js" %}"></script>
+    <script src="https://cdn.jsdelivr.net/materialize/0.98.0/js/materialize.min.js"></script>
+    <script src="{% static "js/color-thief.min.js" %}"></script>
+    <script src="{% static "js/galleryExpand.js" %}"></script>
+    <script src="{% static "js/init.js" %}"></script>
+    <script src="{% static "js/countUp.min.js" %}"></script>
+
+    <script>
+(function ($) {
+    $(function () {
+      $( "#supportoption" ).click(function() {
+        var numAnim = new CountUp(document.getElementById("visitors"), 24.02, 20738, 0, 1);
+        var numAnim1 = new CountUp(document.getElementById("bookings"), 24.02, 6383, 0, 1);
+        var numAnim2 = new CountUp(document.getElementById("barriers"), 24.02, 32982, 0, 1);
+
+        if (!numAnim.error) {
+            numAnim.start();
+            numAnim1.start();
+            numAnim2.start();
+
+        } else {
+            console.error(numAnim.error);
+        }
+
+      });
+
+
+
+        //initialize all modals
+        $('.modal').modal();
+
+        //now you can open modal from code
+        // $('#modal1').modal('open');
+
+        //or by click on trigger
+        //$('.trigger-modal').modal();
+
+    }); // end of document ready
+})(jQuery); // end of jQuery name space
+
+
+function ScrollTo(name) {
+  //init thread
+  ScrollToResolver(document.getElementById(name));
+}
+
+function ScrollToResolver(elem) {
+  var jump = parseInt(elem.getBoundingClientRect().top * .2);
+  document.body.scrollTop += jump;
+  document.documentElement.scrollTop += jump;
+  //lastjump detects anchor unreachable, also manual scrolling to cancel animation if scroll > jump
+  if (!elem.lastjump || elem.lastjump > Math.abs(jump)) {
+    elem.lastjump = Math.abs(jump);
+    setTimeout(function() {
+      ScrollToResolver(elem);
+    }, "100");
+  } else {
+    elem.lastjump = null;
+  }
+}
+
+
+
+</script>
+
+{% endblock %}

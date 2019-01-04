@@ -1,0 +1,41 @@
+
+{% load wagtailcore_tags home_tags %}
+{% load wagtailimages_tags %}
+
+{% for journey2sharesnippet in journey2sharesnippets %}
+
+
+<div class="col l4 m6 s12 gallery-item gallery-expand gallery-filter journey2share">
+          <div class="gallery-curve-wrapper">
+            <a class="gallery-cover gray">
+                {% image journey2sharesnippet.feed_image fill-600x400 class="responsive-img" alt="placeholder" %}
+
+            </a>
+              <div class="gallery-header">
+                  <h5>{{ journey2sharesnippet.title }}</h5>
+                    </div>
+            <div class="gallery-body">
+              <div class="title-wrapper">
+                <h3>{{ journey2sharesnippet.title }}</h3>
+              </div>
+              <div class="description">
+                  {{ journey2sharesnippet.body|richtext }}
+              </div>
+
+              <div class="carousel-wrapper">
+                  <div class="carousel">
+                     {% for journey2share_item in journey2sharesnippet.journey2share_items.all %}
+                     {% image journey2share_item.image fill-600x400  as photo %}
+                      <a class="carousel-item" href="#one!"><img src="{{ photo.url }}"></a>
+                     {% endfor %}
+                  <!-- xxx have to add this extra image to get carousel to work -->
+                      <a class="carousel-item" href="#one!">{% image journey2sharesnippet.feed_image fill-600x400 %}</a>
+                  </div>
+                </div>
+            </div>
+            <div class="gallery-action">
+              <a class="btn-floating btn-large waves-effect waves-light"><i class="material-icons">favorite</i></a>
+            </div>
+          </div>
+        </div>
+{% endfor %}

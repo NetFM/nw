@@ -1,0 +1,6 @@
+nav .categories-wrapper .categories-container.pinned a { 
+    color: #444;
+}
+
+nav .categories-wrapper .categories-container a { 
+}

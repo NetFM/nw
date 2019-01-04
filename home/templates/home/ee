@@ -1,0 +1,18 @@
+    <!-- Navbar and Header -->
+    <nav class="nav-extended nav-full-header z-depth-0 blue-grey darken-3">
+      <div class="nav-background">
+
+      </div>
+      <div class="nav-wrapper container">
+        <a href="/" class="brand-logo"><i class="material-icons">all_inclusive</i>NetFM</a>
+        <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+        <ul class="right hide-on-med-and-down">
+          <li><a href="#contact_us_modal">Contact us</a></li>
+          <li><a href="#support_modal" >Support</a></li>
+          <li><a class='dropdown-button' href='#' data-activates='feature-dropdown' data-belowOrigin="true" data-constrainWidth="false">Login<i class="material-icons right">arrow_drop_down</i></a></li>
+        </ul>
+        <!-- Dropdown Structure -->
+        <ul id='feature-dropdown' class='dropdown-content'>
+          <li><a href="https://click2park.co.uk/">Click2Park</a></li>
+          <li><a href="https://visitor.express/login/">Visitor.Express</a></li>
+        </ul>
