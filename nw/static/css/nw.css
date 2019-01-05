@@ -33,6 +33,7 @@ nav .categories-wrapper .categories-container a {
 
 .numberscontainer{
 display: flex;
+flex-direction: column;
 align-items: center;
 justify-content: space-around;
 height: 250px;

@@ -68,10 +68,11 @@
           <h1>Software by <span class="logonetfm">NetFM</span></h1>
             <h5>Car park management and visitor experience software</h5>
         <div class="numberscontainer">
-          <div class="numbersdiv" id="numbers1"><span id="bookings"></span><br/>Bookings</div>
-          <div class="numbersdiv" id="numbers2"><span id="visitors"></span> <br/>Visitors</div>
-          <div class="numbersdiv" id="numbers3"><span id="barriers"></span><br />aaa<br />ANPR</div>
+          <div class="numbersdiv" id="numbers1"><p><span id="bookings"></span></p>  <div class="divider"></div><p>Bookings</p></div>
+          <div class="numbersdiv section" id="numbers2"><span id="visitors"></span> <br/>Visitors</div>
+          <div class="numbersdiv section" id="numbers3"><span id="barriers"></span><br /><br />ANPR</div>
         </div>
+        <h5>Our customers so far for today !</h5>
         </div>
       </div>
 
@@ -86,9 +87,7 @@
             <li><a href="#journey2share" onclick="ScrollTo('portfolio')">Journey<span style="font-size:1.1em" class="red-text text-darken-4">2</span>Share</a></li>
             <li><a href="#casestudy" onclick="ScrollTo('portfolio')">Case Studies</a></li>
             <li><a href="#" ><i class="material-icons left">local_phone</i>01344 289884</a></li>
-          </ul>
-
-        </div>
+          </ul> </div>
       </div>
     </nav>
     <ul class="side-nav" id="nav-mobile">
@@ -194,7 +193,8 @@
     <script>
 (function ($) {
     $(function () {
-      $( "#supportoption" ).click(function() {
+//      $( "#supportoption" ).click(function() {
+            $(document).ready(function() {
         var numAnim = new CountUp(document.getElementById("visitors"), 24.02, 20738, 0, 1);
         var numAnim1 = new CountUp(document.getElementById("bookings"), 24.02, 6383, 0, 1);
         var numAnim2 = new CountUp(document.getElementById("barriers"), 24.02, 32982, 0, 1);
