@@ -78,6 +78,18 @@
           
         </div>
 </div>
+            <div class="divider"></div>
+        <div class="section"></div>
+        <div class="section">
+        <h5>Today in numbers.</h5>
+</div>
+        <div class="numberscontainer section">
+          <div class="numbersdiv red" id="numbers1"><span id="bookings"></span>Parking Bookings</div>
+          <div class="numbersdiv red" id="numbers2"><span id="visitors"></span>Visitor check-ins</div>
+          <div class="numbersdiv red" id="numbers3"><span id="barriers"></span>ANPs Reads</div>
+        </div>
+        </div>
+        <h5>What could we do for you ?</h5>
       </div>
 
       <!-- Fixed Masonry Filters -->
@@ -91,9 +103,7 @@
             <li><a href="#journey2share" onclick="ScrollTo('portfolio')">Journey<span style="font-size:1.1em" class="red-text text-darken-4">2</span>Share</a></li>
             <li><a href="#casestudy" onclick="ScrollTo('portfolio')">Case Studies</a></li>
             <li><a href="#" ><i class="material-icons left">local_phone</i>01344 289884</a></li>
-          </ul>
-
-        </div>
+          </ul> </div>
       </div>
     </nav>
     <ul class="side-nav" id="nav-mobile">
@@ -199,10 +209,11 @@
     <script>
 (function ($) {
     $(function () {
-      $( "#supportoption" ).click(function() {
-        var numAnim = new CountUp(document.getElementById("visitors"), 24.02, 20738, 0, 1);
-        var numAnim1 = new CountUp(document.getElementById("bookings"), 24.02, 6383, 0, 1);
-        var numAnim2 = new CountUp(document.getElementById("barriers"), 24.02, 32982, 0, 1);
+//      $( "#supportoption" ).click(function() {
+            $(document).ready(function() {
+        var numAnim = new CountUp(document.getElementById("visitors"), 0, 30738, );
+        var numAnim1 = new CountUp(document.getElementById("bookings"), 0, 7383, );
+        var numAnim2 = new CountUp(document.getElementById("barriers"), 0, 42982,);
 
         if (!numAnim.error) {
             numAnim.start();

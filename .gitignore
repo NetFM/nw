@@ -1,3 +1,4 @@
+logs/*.log
 db.sqlite3
 *.pyc
 media/*
