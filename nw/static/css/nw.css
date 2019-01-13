@@ -36,6 +36,7 @@ display: flex;
 align-items: center;
 justify-content: space-around;
 height: 120px;
+line-height: 30px;
 }
 
 .numbersdiv {
@@ -73,8 +74,9 @@ justify-content: space-between;
 
 #barriers, #bookings, #visitors {
     padding-right: 5px;
-    padding-top: 10px;
-    font-size: 1.5em;
+    padding-top: 12px;
+    font-size: 1.7em;
+    line-height: 30px;
 
 }
 
