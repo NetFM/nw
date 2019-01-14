@@ -19,7 +19,8 @@ PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASE_DIR = os.path.dirname(PROJECT_DIR)
 
 
-DEBUG = True
+#DEBUG = True
+DEBUG = False
 INTERNAL_IPS = ['127.0.0.1', '192.168.1.11', '192.168.254.11',]
 ALLOWED_HOSTS = [ 'localhost', 'netfm.org', 'www.netfm.org', ]
 
@@ -175,7 +176,7 @@ WAGTAIL_SITE_NAME = "nw"
 # e.g. in notification emails. Don't include '/admin' or a trailing slash
 BASE_URL = 'https://netfm.org'
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+#EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 EMAIL_SUBJECT_PREFIX = '[NW] '  # to (quickly) distinguish from other Django error emails
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
