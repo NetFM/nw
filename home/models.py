@@ -1,5 +1,7 @@
 from __future__ import absolute_import, unicode_literals
 
+import requests
+
 from wagtail.contrib.forms.edit_handlers import FormSubmissionsPanel
 
 from django.db import models
@@ -45,6 +47,7 @@ class HomePage(AbstractEmailForm):
         FormSubmissionsPanel(),
         FieldPanel('body', classname="full"),
         FieldPanel('intro', classname="full"),
+        FieldPanel('intro_support', classname="full"),
         InlinePanel('form_fields', label="Form fields"),
         FieldPanel('thank_you_text', classname="full"),
         MultiFieldPanel([
@@ -55,6 +58,18 @@ class HomePage(AbstractEmailForm):
             FieldPanel('subject'),
         ], "Email"),
     ]
+
+    def get_context(self, request):
+        context = super(HomePage, self).get_context(request)
+        context['number'] = 23;
+        # Call the API to get numbers, current only use day
+        response = requests.get("https://visitor.express/api/v1/health/")
+        health = response.json()
+        day = health['day']
+        context['bookings'] = day['bookings']
+        context['visitors'] = day['visitors']
+        context['access_queries'] = day['access_queries']
+        return context
 
 
 class CaseStudySnippetTag(TaggedItemBase):

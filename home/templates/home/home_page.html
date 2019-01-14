@@ -49,7 +49,7 @@
         <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
         <ul class="topnav right hide-on-med-and-down">
           <li><a href="#contact_us_modal">Contact us</a></li>
-          <li><a href="#support_modal" id="supportoption">Live</a></li>
+          <li><a href="#support_modal" id="supportoption">Support</a></li>
           <li><a class='dropdown-button' href='#' data-activates='feature-dropdown' data-belowOrigin="true" data-constrainWidth="false">Login<i class="material-icons right">arrow_drop_down</i></a></li>
         </ul>
         <!-- Dropdown Structure -->
@@ -80,9 +80,7 @@
 
         </div>
         </div>
-      <div class="btn red darken-4">
-        <h5>What could we do for you ?</h5>
-</div>
+<a href="#contact_us_modal" class="waves-effect red darken-4 opacity waves-light btn-large"><i class="material-icons right">help</i>How can we help you ?</a>
       </div>
 
       <!-- Fixed Masonry Filters -->
@@ -132,13 +130,30 @@
 
       <div id="support_modal" class="modal">
         <div class="modal-content">
-        <span class="netfmred"> NetFM </span> Live 
+        <span class="netfmred"> NetFM </span> Support 
         <div class="textlive">
           <div class="datatake">Data aggregated from the past 7 days:</div>
           <div class="operational">All Systems Operational <span class="greendot">&middot;</span>  </div> 
         </div>
-        <div class="numberscontainer">
+      {{ page.intro_support | richtext }}
+    <div class="row">
+      <div class="col s12 m5">
+        <div class="card-panel grey darken-2 white-text">
+<i class="material-icons right">done</i>Click<span style="font-size:1.1em" class="red-text text-darken-4">2</span>Park</i>
+         <p>Booking services all good. We continue to monitor the booking service at 5 minute intervals.</p>
+          </span>
         </div>
+      </div>
+      <div class="col s12 m5">
+        <div class="card-panel grey darken-2 white-text">
+<i class="material-icons right">done</i>Visitor<span style="font-size:1.1em" class="red-text text-darken-4">.</span>Express</i>
+         <p>Visitor check-in services all good. We continue to monitor the sending an receiving at 5 minute intervals.</p>
+          </span>
+        </div>
+      </div>
+    </div>
+            
+      </div>
       </div>
       </div>
 
@@ -185,6 +200,8 @@
 
   </div>
   </div>
+</div>
+</div>
 
   {% block extra_js %}
 
@@ -204,9 +221,9 @@
     $(function () {
 //      $( "#supportoption" ).click(function() {
             $(document).ready(function() {
-        var numAnim = new CountUp(document.getElementById("visitors"), 0, 30738, );
-        var numAnim1 = new CountUp(document.getElementById("bookings"), 0, 7383, );
-        var numAnim2 = new CountUp(document.getElementById("barriers"), 0, 42982,);
+        var numAnim = new CountUp(document.getElementById("visitors"), 0, {{ bookings }}, 0 , 1 );
+        var numAnim1 = new CountUp(document.getElementById("bookings"), 0, {{ visitors }} , 0,2 );
+        var numAnim2 = new CountUp(document.getElementById("barriers"), 0, {{ access_queries }},0,3);
 
         if (!numAnim.error) {
             numAnim.start();
