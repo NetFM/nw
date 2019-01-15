@@ -65,10 +65,22 @@ class HomePage(AbstractEmailForm):
         # Call the API to get numbers, current only use day
         response = requests.get("https://visitor.express/api/v1/health/")
         health = response.json()
+        year = health['month']
+        context['bookings_year'] = year['bookings']
+        context['visitors_year'] = year['visitors']
+        context['access_queries_year'] = year['access_queries']
+        month = health['month']
+        context['bookings_month'] = month['bookings']
+        context['visitors_month'] = month['visitors']
+        context['access_queries_month'] = month['access_queries']
+        week = health['week']
+        context['bookings_week'] = week['bookings']
+        context['visitors_week'] = week['visitors']
+        context['access_queries_week'] = week['access_queries']
         day = health['day']
-        context['bookings'] = day['bookings']
-        context['visitors'] = day['visitors']
-        context['access_queries'] = day['access_queries']
+        context['bookings_day'] = day['bookings']
+        context['visitors_day'] = day['visitors']
+        context['access_queries_day'] = day['access_queries']
         return context
 
 

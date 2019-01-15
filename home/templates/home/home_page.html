@@ -71,7 +71,7 @@
         <div class="divider"></div>
         <div class="section"></div>
         <div class="section">
-        <h5>Today in numbers.</h5>
+        <h5 id="numtext">Today in numbers.</h5>
 </div>
         <div class="numberscontainer section">
           <div class="numbersdiv red darken-4" id="numbers1"><span id="bookings"></span>Parking Bookings</div>
@@ -217,13 +217,16 @@
     <script src="{% static "js/countUp.min.js" %}"></script>
 
     <script>
+
+        var numAnim = new CountUp(document.getElementById("visitors"), 0, {{ bookings_day }}, 0 , 1 );
+        var numAnim1 = new CountUp(document.getElementById("bookings"), 0, {{ visitors_day }} , 0,2 );
+        var numAnim2 = new CountUp(document.getElementById("barriers"), 0, {{ access_queries_day }},0,3);
+
 (function ($) {
     $(function () {
 //      $( "#supportoption" ).click(function() {
             $(document).ready(function() {
-        var numAnim = new CountUp(document.getElementById("visitors"), 0, {{ bookings }}, 0 , 1 );
-        var numAnim1 = new CountUp(document.getElementById("bookings"), 0, {{ visitors }} , 0,2 );
-        var numAnim2 = new CountUp(document.getElementById("barriers"), 0, {{ access_queries }},0,3);
+
 
         if (!numAnim.error) {
             numAnim.start();
@@ -234,8 +237,39 @@
             console.error(numAnim.error);
         }
 
+
       });
 
+
+
+function week_update(){
+        $("#numtext").text("This week in numbers");
+        numAnim.update({{bookings_week }});
+        numAnim1.update({{visitors_week }});
+        numAnim2.update({{access_queries_week }});
+
+}
+
+function month_update(){
+        $("#numtext").text("This month in numbers");
+        numAnim.update({{bookings_month }});
+        numAnim1.update({{visitors_month }});
+        numAnim2.update({{access_queries_month }});
+
+}
+
+function year_update(){
+        $("#numtext").text("This year in numbers");
+        numAnim.update({{bookings_year }});
+        numAnim1.update({{visitors_year }});
+        numAnim2.update({{access_queries_year }});
+
+}
+
+// So every 10sec change the numbers until year is shown
+setTimeout(week_update, 10000);
+setTimeout(month_update, 20000);
+setTimeout(year_update, 30000);
 
 
         //initialize all modals
